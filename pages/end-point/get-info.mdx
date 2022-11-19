@@ -1,0 +1,49 @@
+# Get-Info 
+
+This End-point allows you to get informtion about any specific public channel on telegram. 
+
+## How to request
+
+**BASE URL** : ` https://fanatgchannelscraper.herokuapp.com/api/v2` \
+**Method** : `GET` \
+**End-point** : `/get_info/:username` \
+**Header** : `token: xxxxxx-xxxxxx-xxxxxx-xxxxxx`
+
+
+
+### Example
+
+> Dont forget to replace your `token`
+
+#### Get info about `Ethio_Market_Place`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/get_info/ethio_market_place' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+### Response
+
+```json
+{
+    "profile": "https://...",
+    "title": "...",
+    "username": "@...",
+    "subscribers": "...",
+    "photos": "...",
+    "links": "..."
+}
+```
+
+
+### Error
+
+> | Code | Messages | Description |
+> | ---- | ---- | ----------- |
+> | 400 | City name is not provided on the query param | You are not passing a proper parameters in the param. Please read the documentation. |
+> | 400 | Can't find city name xxxxxxx in Ethiopia | Your city is not found in our data set. Please try a different city. |
+> | 401 | No user or service found | Your Token is not correct, Please pass your **TOKEN** in the header with a key `token`. |
+> | 401 | User token is not provided | You are not passing a proper **TOKEN**. Please pass your **TOKEN** in the header with a key `token`. |
+
+
+

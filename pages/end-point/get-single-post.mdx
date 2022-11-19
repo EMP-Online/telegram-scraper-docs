@@ -1,0 +1,64 @@
+# Get Single Post
+
+This end-point allows you to get a single post data from any specific telegram channels. You can use this end-point to :
+- To get your channel Update
+- To get the latest posts from a News, Ecommerce or Job  Channel
+
+
+## How to request
+
+**BASE URL** : ` https://fanatgchannelscraper.herokuapp.com/api/v2` \
+**Method** : `GET` \
+**End-point** : `/getpostby_id/:username/:post_id` \
+**Header** : `token: xxxxxx-xxxxxx-xxxxxx-xxxxxx`
+
+
+### Example
+
+> Dont forget to replace your `token`
+
+#### Get Post from `ethio_market_place` After `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/getpostby_id/ethio_market_place/1954' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+### Response
+
+```json
+{
+    id: 524,
+    text: "Post Text ...",
+    img: [
+      "https://...",
+      ...
+    ],
+    vid: [
+        "https://...",
+        ...
+    ]
+}
+```
+
+### Error
+
+> | Code | Messages                                              | Description                                                   |
+> | ---- | ----                                                  | -----------                                                   |
+> | 400  | NO_VALID_CHANNEL_USERNAME_FOUND                       | Invalid channel username. Please read the documentation.      |
+> | 400  | ONLY_CHANNELS_ALLOWED                                 | only channels can be scraped                                  |
+> | 401  | NO_POST_FOUND                                         | channels With Empty Post                                      |
+> | 401  | NO_VALID_ID_FOUND                                     | post Id is not Valid                                          |
+> | 401  | CONNECTION_ERROR_FOUND                                | connection problem occured                                    |
+
+
+
+
+
+
+
+
+
+
+
+

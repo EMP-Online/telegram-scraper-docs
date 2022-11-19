@@ -1,0 +1,10 @@
+{
+  "get-info": "Get info",
+  "get-post": "Get post",
+  "get-posts": "Get posts",
+  "get-single-post": "Get single post",
+  "getlastpost_id": "Get last post id",
+  "getmultiplechannels_post": "Get multiple post",
+  "search": "Search",
+  "index": "End point"
+}

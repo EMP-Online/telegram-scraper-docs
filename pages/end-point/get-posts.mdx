@@ -1,0 +1,83 @@
+# Get Posts
+
+This end-point allows you to get posts data from any specific telegram channels. You can use this end-point to :
+- To get your channel Update
+- To get the latest posts from a News, Ecommerce or Job  Channel
+
+
+## How to request
+
+**BASE URL** : ` https://fanatgchannelscraper.herokuapp.com/api/v2` \
+**Method** : `GET` \
+**End-point** : `/get_posts/:username ` \
+**Header** : `token: xxxxxx-xxxxxx-xxxxxx-xxxxxx`
+
+### Params
+^
+| Name	|Type	| Description | Example | Required     |
+| ----  | ----  | ----        | ----    | ----    |  
+| after | number | If you want to get the newr posts, pass the starting post id | 234 | False  |
+| before | number | If you want to get the older posts, pass the starting post id  | 454 | False  |
+
+
+
+### Example
+
+> Dont forget to replace your `token`
+
+#### Get Post from `ethio_market_place`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/get_posts/ethio_market_place?search=shoes' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+    
+#### Get Post from `ethio_market_place` After `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/get_posts/ethio_market_place?search=shoes&after=1930' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+#### Get Post from `ethio_market_place` Before `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/get_posts/ethio_market_place?search=shoes&before=1930' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+### Response
+
+```json
+[
+  {
+    "id": 1937,
+    "text": "Post Text ...",
+    "img": "https://..."
+  }
+]
+```
+
+### Error
+
+> | Code | Messages | Description |
+> | ---- | ---- | ----------- |
+> | 400 | City name is not provided on the query param | You are not passing a proper parameters in the param. Please read the documentation. |
+> | 400 | Can't find city name xxxxxxx in Ethiopia | Your city is not found in our data set. Please try a different city. |
+> | 401 | No user or service found | Your Token is not correct, Please pass your **TOKEN** in the header with a key `token`. |
+> | 401 | User token is not provided | You are not passing a proper **TOKEN**. Please pass your **TOKEN** in the header with a key `token`. |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

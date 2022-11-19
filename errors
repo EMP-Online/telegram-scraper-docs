@@ -1,0 +1,13 @@
+
+### Error
+
+> | Code | Messages                                              | Description                                                   |
+> | ---- | ----                                                  | -----------                                                   |
+> | 400  | NO_VALID_CHANNEL_USERNAME_FOUND                       | Invalid channel username. Please read the documentation.      |
+> | 400  | ONLY_CHANNELS_ALLOWED                                 | only channels can be scraped                                  |
+> | 401  | NO_POST_FOUND                                         | channels With Empty Post                                      |
+> | 401  | NO_VALID_ID_FOUND                                     | post Id is not Valid                                          |
+> | 401  | EXPECT_VALID_CHANNEL_USER_NAMES, AS Query PARAMETER   | expect valid multiple channel usernames                       |
+> | 401  | MULTIPLE_CHANNEL_USER_NAME_EXPECTED                   | channel usernames have to more than 1                         |
+> | 401  | CONNECTION_ERROR_FOUND                                | connection problem occured                                    |
+> | 401  | NO_QUERY_FOUND_TO_SEARCH                              | search query not found                                        |

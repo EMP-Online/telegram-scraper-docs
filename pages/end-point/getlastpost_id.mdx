@@ -1,0 +1,63 @@
+# Get Last Post Id
+
+This end point helps you find the last visible post ID from a spesfic channel 
+
+
+## How to request
+
+**BASE URL** : ` https://fanatgchannelscraper.herokuapp.com/api/v2` \
+**Method** : `GET` \
+**End-point** : `/getlastpost_id/:username ` \
+**Header** : `token: xxxxxx-xxxxxx-xxxxxx-xxxxxx`
+
+
+### Params
+^
+| Name	|Type	| Description | Example | Required     |
+| ----  | ----  | ----        | ----    | ----    |  
+| after | number | If you want to get the newr posts, pass the starting post id | 234 | False  |
+| before | number | If you want to get the older posts, pass the starting post id  | 454 | False  |
+
+
+
+
+### Example
+
+> Dont forget to replace your `token`
+
+#### Get last post id from `ethio_market_place`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/getlastpost_id/ethio_market_place?search=shoes' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+    
+#### Get last post id from `ethio_market_place` After `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/getlastpost_id/ethio_market_place?search=shoes&after=1930' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+#### Get last post id from `ethio_market_place` Before `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/getlastpost_id/ethio_market_place?search=shoes&before=1930' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+### Response
+
+```json
+{
+    "id": 1937
+}
+```
+
+### Error
+
+> | Code | Messages                                              | Description                                                   |
+> | ---- | ----                                                  | -----------                                                   |
+> | 200  | NO_VALID_CHANNEL_USERNAME_FOUND                       | Invalid channel username. Please read the documentation.      |
+> | 200  | ONLY_CHANNELS_ALLOWED                                 | only channels can be scraped                                  |
+> | 200  | CONNECTION_ERROR_FOUND                                | connection problem occured                                    |

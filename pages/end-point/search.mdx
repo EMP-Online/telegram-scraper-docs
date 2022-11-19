@@ -1,0 +1,74 @@
+# Search 🔍
+
+This End-point allows you to search for specific terms in any public channel and get the results. You can use this end-point to : 
+- To verify if a particular topic is mentioned , or even 
+- To see what people are saying about your brand or company! 
+- To categorized a specific post my hashtag 
+
+## How to request
+
+**BASE URL** : ` https://fanatgchannelscraper.herokuapp.com/api/v2` \
+**Method** : `GET` \
+**End-point** : `/search/:username ` \
+**Header** : `token: xxxxxx-xxxxxx-xxxxxx-xxxxxx`
+
+### Params
+^
+| Name	|Type	| Description | Example | Required     |
+| ----  | ----  | ----        | ----    | ----    |  
+| search | string | the term you want to search | #sport |  True  |
+| after | number | If you want to get the newr posts, pass the starting post id | 234 | False  |
+| before | number | If you want to get the older posts, pass the starting post id  | 454 | False  |
+
+### Example
+
+
+
+> Dont forget to replace your `token`
+
+#### Search for `shoes`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/search/ethio_market_place?search=shoes' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+    
+#### Search for `shoes` After `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/search/ethio_market_place?search=shoes&after=1930' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+#### Search for `shoes` Before `1930`
+
+> ```curl
+> curl --location --request GET 'https://fanatgchannelscraper.herokuapp.com/api/v2/search/ethio_market_place?search=shoes&before=1930' \
+> --header 'token: xxxxxx-xxxxxx-xxxxxx-xxxxxx'
+> ```
+
+### Response
+
+```json
+[
+  {
+    id: 327,
+    text: "This is you post tex or caption",
+    img: [],
+    vid: [],
+  },
+];
+```
+
+
+### Error
+
+> | Code | Messages | Description |
+> | ---- | ---- | ----------- |
+> | 400 | City name is not provided on the query param | You are not passing a proper parameters in the param. Please read the documentation. |
+> | 400 | Can't find city name xxxxxxx in Ethiopia | Your city is not found in our data set. Please try a different city. |
+> | 401 | No user or service found | Your Token is not correct, Please pass your **TOKEN** in the header with a key `token`. |
+> | 401 | User token is not provided | You are not passing a proper **TOKEN**. Please pass your **TOKEN** in the header with a key `token`. |
+
+
+
